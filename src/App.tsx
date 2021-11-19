@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AircraftSchedulingApi } from './API/AircraftSchedulingApi';
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <button onClick={testAPIs}>Test API's</button>
+        <ToastContainer />
       </header>
     </div>
   );
