@@ -20,4 +20,12 @@ export class AircraftSchedulingApi {
 				notifyError(error.message);
 			});
 	}
+
+  static async getFlights(offset:number = 0, limit:number = 25) {
+		return axios
+			.get(`${AircraftSchedulingApiConfig.baseURL}flights?offset=${offset}&limit=${limit}`)
+			.catch((error) => {
+				notifyError(error.message);
+			});
+	}
 }
