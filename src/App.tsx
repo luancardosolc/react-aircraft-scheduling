@@ -8,8 +8,12 @@ import { AircraftSchedulingApi } from './API/AircraftSchedulingApi';
 function App() {
   const testAPIs = async () => {
     console.log('Testing API\'s');
+
     let aircrafts = await AircraftSchedulingApi.getAircrafts(1, 10);
-    console.log('aircrafts', aircrafts?.data);
+    console.log('aircraftS:', aircrafts?.data);
+
+    let aircraft = await AircraftSchedulingApi.getAircraftByIdent('GABCD');
+    console.log('aircraft:', aircraft?.data);
   }
 
   return (
