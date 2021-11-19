@@ -17,6 +17,9 @@ function App() {
 
     let flights = await AircraftSchedulingApi.getFlights(1, 10);
     console.log('flightS:', flights?.data);
+
+    let flight = await AircraftSchedulingApi.getFlightById('AS1234');
+    console.log('flight:', flight?.data);
   }
 
   return (

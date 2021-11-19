@@ -28,4 +28,12 @@ export class AircraftSchedulingApi {
 				notifyError(error.message);
 			});
 	}
+
+  static async getFlightById(id: string) {
+		return axios
+			.get(`${AircraftSchedulingApiConfig.baseURL}flights/${id}`)
+			.catch((error) => {
+				notifyError(error.message);
+			});
+	}
 }
