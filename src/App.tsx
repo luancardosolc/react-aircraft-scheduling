@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { AircraftSchedulingApi } from './API/AircraftSchedulingApi';
 
 function App() {
+  const testAPIs = async () => {
+    console.log('Testing API\'s');
+    let aircrafts = await AircraftSchedulingApi.getAircrafts();
+    console.log('aircrafts', aircrafts);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,14 +17,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={testAPIs}>Test API's</button>
       </header>
     </div>
   );
