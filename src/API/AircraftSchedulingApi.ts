@@ -7,7 +7,7 @@ const notifyError = (msg: string) => toast.error(msg);
 export class AircraftSchedulingApi {
 	static async getAircrafts() {
 		return axios
-			.get(`${AircraftSchedulingApiConfig.baseURL}aircraftss`)
+			.get(`${AircraftSchedulingApiConfig.baseURL}aircrafts`)
 			.catch((error) => {
 				notifyError(error.message);
 			});
