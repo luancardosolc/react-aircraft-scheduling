@@ -1,16 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import logo from './white-paper-airplane-icon.png';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AircraftSchedulingApi } from './API/AircraftSchedulingApi';
+import Aircrafts from './Components/Aircrafts';
 
 function App() {
+  const [aircrafts, setAircrafts] = useState([]);
+  useEffect(() => {
+    testAPIs();
+  }, []);
+
   const testAPIs = async () => {
     console.log('Testing API\'s');
 
-    let aircrafts = await AircraftSchedulingApi.getAircrafts(1, 10);
-    console.log('aircraftS:', aircrafts?.data);
+    let aircraftsResponse = await AircraftSchedulingApi.getAircrafts(1, 10);
+    setAircrafts(aircraftsResponse?.data);
+    console.log('aircraftS:', aircraftsResponse?.data);
 
     let aircraft = await AircraftSchedulingApi.getAircraftByIdent('GABCD');
     console.log('aircraft:', aircraft?.data);
@@ -26,10 +33,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
         <button onClick={testAPIs}>Test API's</button>
+        <Aircrafts></Aircrafts>
         <ToastContainer />
       </header>
     </div>
